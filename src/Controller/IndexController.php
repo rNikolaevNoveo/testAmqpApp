@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\DTO\Request\IntegerValueDto;
 use App\Form\IntegerValueType;
+use App\Services\SumValuesProducerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,18 +14,27 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param Request $request
-     * @param IntegerValueDto $dto
+     * @param SumValuesProducerService $producer
      * @return Response
      */
-    public function index(Request $request, IntegerValueDto $dto): Response
+    public function index(Request $request, SumValuesProducerService $producer): Response
     {
 
         $form = $this->createForm(IntegerValueType::class);
-        //$form->handleRequest();
         if ($request->isMethod('POST')) {
             $form->submit($request->request->get($form->getName()));
 
             if ($form->isSubmitted() && $form->isValid()) {
+                $msg = [
+                    'value_1' =>$form->getData()->getValueOne(),
+                    'value_2' =>$form->getData()->getValueTwo()
+                ];
+
+                try {
+                    $producer->send($msg);
+                } catch (\Throwable $e) {
+
+                }
 
                 return $this->redirect('/');
             }
