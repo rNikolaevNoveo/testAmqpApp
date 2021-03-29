@@ -33,7 +33,7 @@ class IndexController extends AbstractController
                 try {
                     $producer->send($msg);
                 } catch (\Throwable $e) {
-
+                    $e->getMessage();
                 }
 
                 return $this->redirect('/');

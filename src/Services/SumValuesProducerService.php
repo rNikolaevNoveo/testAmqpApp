@@ -20,12 +20,7 @@ class SumValuesProducerService
 
     public function send(array $data): Response
     {
-
-        dd($this->producer->getChannel());
-        $this->producer->setContentType('application/json');
-        $this->producer->setChannel('testAmqpApp',);
         $this->producer->publish(serialize($data));
-
         return new Response();
     }
 }
