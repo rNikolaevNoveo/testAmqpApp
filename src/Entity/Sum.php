@@ -21,12 +21,12 @@ class Sum
     /**
      * @ORM\Column(type="integer")
      */
-    private $value_one;
+    private $valueOne;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $value_two;
+    private $valueTwo;
 
     /**
      * @ORM\Column(type="integer")
@@ -45,24 +45,24 @@ class Sum
 
     public function getValueOne(): ?int
     {
-        return $this->value_one;
+        return $this->valueOne;
     }
 
-    public function setValueOne(int $value_one): self
+    public function setValueOne(int $valueOne): self
     {
-        $this->value_one = $value_one;
+        $this->valueOne = $valueOne;
 
         return $this;
     }
 
     public function getValueTwo(): ?int
     {
-        return $this->value_two;
+        return $this->valueTwo;
     }
 
-    public function setValueTwo(int $value_two): self
+    public function setValueTwo(int $valueTwo): self
     {
-        $this->value_two = $value_two;
+        $this->valueTwo = $valueTwo;
 
         return $this;
     }

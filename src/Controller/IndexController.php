@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Form\IntegerValueType;
-use App\Services\SumValuesProducerService;
+use App\Producer\SumValuesProducer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +14,10 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      * @param Request $request
-     * @param SumValuesProducerService $producer
+     * @param SumValuesProducer $producer
      * @return Response
      */
-    public function index(Request $request, SumValuesProducerService $producer): Response
+    public function index(Request $request, SumValuesProducer $producer): Response
     {
 
         $form = $this->createForm(IntegerValueType::class);

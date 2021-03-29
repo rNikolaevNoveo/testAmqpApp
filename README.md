@@ -16,3 +16,10 @@ Migrate database
 1. Prepare Database and migrate
     - `docker-compose exec web bash`
     - `bin/console doctrine:migrations:migrate`
+
+Run consumer command
+=========
+1. Command:
+   - `docker-compose exec web bash`
+   - `bin/console rabbitmq:consumer sum_values`
+   
