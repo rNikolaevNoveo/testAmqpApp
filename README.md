@@ -11,6 +11,11 @@ Build PHP
 =========
 `docker-compose exec web composer install` - to download php packages
 
+Setup Environment
+=========
+`Create .env file and set data from .env.dist`
+
+
 Migrate database
 =========
 1. Prepare Database and migrate
